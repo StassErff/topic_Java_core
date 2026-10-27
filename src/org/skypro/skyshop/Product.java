@@ -2,7 +2,7 @@ package org.skypro.skyshop;
 
 import java.util.Objects;
 
-public class Product {
+public abstract class Product {
     private String name;
     private int price;
 
@@ -15,9 +15,7 @@ public class Product {
         return name;
     }
 
-    public int getPrice() {
-        return price;
-    }
+    public abstract int getPrice();
 
     @Override
     public boolean equals(Object a) {

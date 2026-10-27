@@ -4,12 +4,12 @@ import org.skypro.skyshop.basket.ProductBasket;
 
 public class App {
     public static void main(String[] args) {
-        Product cookie = new Product("печенье", 60);
-        Product waffles = new Product("вафли", 70);
-        Product marshmallow = new Product("зефир", 105);
-        Product toffees = new Product("ириски", 50);
-        Product lollipop = new Product("леденец", 15);
-        Product cake = new Product("пироженое", 30);
+        SimpleProduct cookie = new SimpleProduct("печенье", 60);
+        SimpleProduct waffles = new SimpleProduct("вафли", 70);
+        SimpleProduct marshmallow = new SimpleProduct("зефир", 105);
+        SimpleProduct toffees = new SimpleProduct("ириски", 50);
+        SimpleProduct lollipop = new SimpleProduct("леденец", 15);
+        SimpleProduct cake = new SimpleProduct("пироженое", 30);
 
         ProductBasket basket = new ProductBasket();
 
