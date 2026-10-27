@@ -26,4 +26,13 @@ public class ProductBasket {
         }
         return sumPriseProduct;
     }
+
+    public void printContentsBasket() {
+        for (int i = 0; i < basket.length; i++) {
+            if (basket[i] != null) {
+                System.out.println(basket[i].getName() + ": " + basket[i].getPrice());
+            }
+        }
+        System.out.println("Итого: " + priseBasket());
+    }
 }
