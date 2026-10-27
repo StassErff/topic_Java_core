@@ -4,7 +4,7 @@ import org.skypro.skyshop.Product;
 public class ProductBasket {
     private Product[] basket = new Product[5];
 
-    public void addToCart(Product product) {
+    public void addToBasket(Product product) {
         //boolean add = false;
         for (int i = 0; i < basket.length; i++) {
             if (basket[i] == null) {
@@ -15,5 +15,15 @@ public class ProductBasket {
                 System.out.println("Невозможно добавить продукт");
             }
         }
+    }
+
+    public int priseBasket() {
+        int sumPriseProduct = 0;
+        for (int i = 0; i < basket.length; i++) {
+            if (basket[i] != null) {
+                sumPriseProduct += basket[i].getPrice();
+            }
+        }
+        return sumPriseProduct;
     }
 }
