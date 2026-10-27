@@ -49,4 +49,13 @@ public class ProductBasket {
         }
         return check;
     }
+
+    public void emptyingTheTrash() {
+        for (int i = 0; i < basket.length; i++) {
+            if (basket[i] != null) {
+                basket[i] = null;
+            }
+        }
+        System.out.println("Корзина очищенна");
+    }
 }
