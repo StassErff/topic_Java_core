@@ -5,13 +5,19 @@ public class ProductBasket {
     private Product[] basket = new Product[5];
 
     public void addToBasket(Product product) {
+        boolean isAdded = false;
+
         for (int i = 0; i < basket.length; i++) {
             if (basket[i] == null) {
                 basket[i] = product;
+                isAdded = true;
+                System.out.println("Продукт добавлен в вашу корзину");
                 break;
-            } else {
-                System.out.println("Невозможно добавить продукт");
             }
+        }
+
+        if (!isAdded) {
+            System.out.println("Невозможно добавить продукт");
         }
     }
 
@@ -27,13 +33,16 @@ public class ProductBasket {
     }
 
     public void printContentsBasket() {
-        for (int i = 0; i < basket.length; i++) {
-            if (basket[i] != null) {
-                System.out.println(basket[i].getName() + ": " + basket[i].getPrice());
-            } else {
-                System.out.println("в корзине пусто");
+        if (priseBasket() == 0) {
+            System.out.println("в корзине пусто");
+        } else {
+            for (int i = 0; i < basket.length; i++) {
+                if (basket[i] != null) {
+                    System.out.println(basket[i].getName() + ": " + basket[i].getPrice());
+                }
             }
         }
+
         System.out.println("Итого: " + priseBasket());
     }
 
