@@ -1,15 +1,17 @@
 package org.skypro.skyshop;
 
-public class DiscountedProduct {
-    private int basePrice;
-    private int percentDiscount;
+public class DiscountedProduct extends Product {
+    private final int basePrice;
+    private final int percentDiscount;
 
-    public DiscountedProduct(int basePrise, int percentDiscount) {
-        this.basePrice = basePrise;
+    public DiscountedProduct(String name, int basePrice, int percentDiscount) {
+        super(name, (int) (basePrice * (1 - percentDiscount / 100.0)));
+        this.basePrice = basePrice;
         this.percentDiscount = percentDiscount;
     }
 
-    public double getPrise() {
-        return basePrice * (1 - percentDiscount / 100.0);
+    @Override
+    public int getPrice() {
+        return (int) (basePrice * (1 - percentDiscount / 100.0));
     }
 }
