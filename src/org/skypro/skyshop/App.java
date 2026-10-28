@@ -6,10 +6,10 @@ public class App {
     public static void main(String[] args) {
         SimpleProduct cookie = new SimpleProduct("печенье", 60);
         SimpleProduct waffles = new SimpleProduct("вафли", 70);
-        SimpleProduct marshmallow = new SimpleProduct("зефир", 105);
-        SimpleProduct toffees = new SimpleProduct("ириски", 50);
+        DiscountedProduct marshmallow = new DiscountedProduct("зефир", 105, 15);
+        DiscountedProduct toffees = new DiscountedProduct("ириски", 50, 40);
         SimpleProduct lollipop = new SimpleProduct("леденец", 15);
-        SimpleProduct cake = new SimpleProduct("пироженое", 30);
+        FixPriceProduct cake = new FixPriceProduct("пироженое");
 
         ProductBasket basket = new ProductBasket();
 
@@ -17,13 +17,11 @@ public class App {
         basket.addToBasket(waffles);
         basket.addToBasket(marshmallow);
         basket.addToBasket(toffees);
-        basket.addToBasket(lollipop);
-
         basket.addToBasket(cake);
 
         basket.printContentsBasket();
 
-        System.out.println("Стоимость вашей корзины: " + basket.priseBasket());
+        System.out.println("Стоимость вашей корзины: " + basket.priceBasket());
 
         System.out.println(basket.checkContentsBasket("леденец"));
 
@@ -33,7 +31,7 @@ public class App {
 
         basket.printContentsBasket();
 
-        System.out.println("Стоимость вашей корзины: " + basket.priseBasket());
+        System.out.println("Стоимость вашей корзины: " + basket.priceBasket());
 
         System.out.println(basket.checkContentsBasket("леденец"));
     }

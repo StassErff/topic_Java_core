@@ -24,4 +24,6 @@ public abstract class Product {
         Product product = (Product) a;
         return Objects.equals(name, product.name);
     }
+
+    public abstract boolean isSpecial();
 }
