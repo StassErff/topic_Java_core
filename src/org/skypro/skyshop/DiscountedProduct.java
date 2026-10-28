@@ -5,8 +5,8 @@ public class DiscountedProduct extends Product {
     private final int percentDiscount;
 
     public DiscountedProduct(String name, int basePrice, int percentDiscount) {
-        super(name, (int) (basePrice * (1 - percentDiscount / 100.0)));
-        this.basePrice = basePrice;
+        super(name);
+        this.basePrice = (int) (basePrice * (1 - percentDiscount / 100.0));
         this.percentDiscount = percentDiscount;
     }
 
