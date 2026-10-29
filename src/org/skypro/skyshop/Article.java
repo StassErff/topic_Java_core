@@ -1,0 +1,16 @@
+package org.skypro.skyshop;
+
+public class Article {
+    private String name;
+    private String text;
+
+    public Article(String name, String text) {
+        this.name = name;
+        this.text = text;
+    }
+
+    @Override
+    public String toString() {
+        return "Название: " + name + "\nТекст: " + text + "\n";
+    }
+}
