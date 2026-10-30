@@ -1,8 +1,8 @@
 package org.skypro.skyshop;
 
 public class Article implements Searchable{
-    private String name;
-    private String text;
+    private final String name;
+    private final String text;
 
     public Article(String name, String text) {
         this.name = name;
