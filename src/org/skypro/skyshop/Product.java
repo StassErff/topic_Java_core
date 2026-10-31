@@ -2,7 +2,7 @@ package org.skypro.skyshop;
 
 import java.util.Objects;
 
-public abstract class Product {
+public abstract class Product  implements Searchable{
     private String name;
 
     public Product(String name) {
