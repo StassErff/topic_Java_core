@@ -57,6 +57,24 @@ public class App {
         System.out.println("Стоимость вашей корзины: " + basket.priceBasket());
 
         System.out.println(basket.checkContentsBasket("леденец"));
+
+        try {
+            SimpleProduct lollipopTest = new SimpleProduct("    ", 15);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Навание продукта не должно быть пустым или null");
+        }
+
+        try {
+            DiscountedProduct toffeesTest = new DiscountedProduct("ириски", 9, 956);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Процент должен быть числом в диапазоне от 0 до 100 включительно");
+        }
+
+        try {
+            SimpleProduct cookieTest = new SimpleProduct("печенье", 0);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Цена должна быть больше нуля");
+        }
     }
     public static void printSearchResults(Searchable[] results) {
         boolean foundAtLeastOne = false;
