@@ -20,12 +20,6 @@ public class App {
         Article articleToffees = new Article("Toffees", "Chewy creamy toffees stick very strongly to one's teeth");
         Article articleCake = new Article("Cake", "The delicate sponge cakes were decorated with fresh raspberries");
 
-        product.add(cookie);
-        product.add(waffles);
-        product.add(marshmallow);
-        product.add(toffees);
-        product.add(lollipop);
-        product.add(cake);
         product.add(articleCookie);
         product.add(articleWaffles);
         product.add(articleToffees);
@@ -76,7 +70,19 @@ public class App {
             System.out.println("Цена должна быть больше нуля");
         }
 
+        try {
+            Searchable result = product.searchable("cake");
+            System.out.println("Найден элемент с текстом: " + result.getSearchTerm());
+        } catch (BestResultNotFound e) {
+            System.out.println(e.getMessage());
+        }
 
+        try {
+            Searchable result = product.searchable("lollipop");
+            System.out.println("Найден элемент с текстом: " + result.getSearchTerm());
+        } catch (BestResultNotFound e) {
+            System.out.println(e.getMessage());
+        }
     }
     public static void printSearchResults(Searchable[] results) {
         boolean foundAtLeastOne = false;

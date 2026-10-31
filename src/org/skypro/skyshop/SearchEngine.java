@@ -41,6 +41,9 @@ public class SearchEngine {
         Searchable searchable1 = null;
         int maxCount = 0;
         for (Searchable s : searchable) {
+            if (s == null) {
+                continue;
+            }
             int count = 0;
             int index = 0;
             int indexString = s.getSearchTerm().indexOf(search, index);
@@ -56,7 +59,7 @@ public class SearchEngine {
         }
         if (maxCount == 0) {
 
-            throw new BestResultNotFound("Элемента не нашлось!!!");
+            throw new BestResultNotFound(search);
         }
         return searchable1;
     }
