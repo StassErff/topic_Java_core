@@ -36,4 +36,28 @@ public class SearchEngine {
             System.out.println("Массив заполнен, добавление невозможно");
         }
     }
+
+    public Searchable searchable(String search) throws BestResultNotFound {
+        Searchable searchable1 = null;
+        int maxCount = 0;
+        for (Searchable s : searchable) {
+            int count = 0;
+            int index = 0;
+            int indexString = s.getSearchTerm().indexOf(search, index);
+            while (indexString != -1){
+                count++;
+                index = indexString + search.length();
+                indexString = s.getSearchTerm().indexOf(search, index);
+            }
+            if (count > maxCount) {
+                maxCount = count;
+                searchable1 = s;
+            }
+        }
+        if (maxCount == 0) {
+
+            throw new BestResultNotFound("Элемента не нашлось!!!");
+        }
+        return searchable1;
+    }
 }

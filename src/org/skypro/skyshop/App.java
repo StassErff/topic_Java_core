@@ -75,6 +75,8 @@ public class App {
         } catch (IllegalArgumentException e) {
             System.out.println("Цена должна быть больше нуля");
         }
+
+
     }
     public static void printSearchResults(Searchable[] results) {
         boolean foundAtLeastOne = false;
