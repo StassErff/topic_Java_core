@@ -8,6 +8,14 @@ public class DiscountedProduct extends Product {
         super(name);
         this.basePrice = (int) (basePrice * (1 - percentDiscount / 100.0));
         this.percentDiscount = percentDiscount;
+
+        if (basePrice <= 0) {
+            throw new IllegalArgumentException("Цена должна быть больше нуля");
+        }
+
+        if (percentDiscount < 0 || percentDiscount > 100) {
+            throw new IllegalArgumentException("Процент должен быть числом в диапазоне от 0 до 100 включительно");
+        }
     }
 
     @Override
