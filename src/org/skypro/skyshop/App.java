@@ -33,11 +33,11 @@ public class App {
         printSearchResults(product.search("cake"));
         printSearchResults(product.search("pancake"));
 
-        basket.addToBasket(cookie);
-        basket.addToBasket(waffles);
-        basket.addToBasket(marshmallow);
-        basket.addToBasket(toffees);
-        basket.addToBasket(cake);
+        basket.addToBasket("печенье", cookie);
+        basket.addToBasket("вафли", waffles);
+        basket.addToBasket("зефир", marshmallow);
+        basket.addToBasket("ириски", toffees);
+        basket.addToBasket("пироженое", cake);
 
         basket.printContentsBasket();
 
