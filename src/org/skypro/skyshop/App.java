@@ -4,6 +4,7 @@ import org.skypro.skyshop.basket.ProductBasket;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class App {
     public static void main(String[] args) {
@@ -96,11 +97,11 @@ public class App {
             System.out.println(e.getMessage());
         }
     }
-    public static void printSearchResults(List<Searchable> results) {
+    public static void printSearchResults(Map<String, Searchable> results) {
         if (results == null || results.isEmpty()) {
             System.out.println("Ничего не найдено.");
         } else {
-            for (Searchable result : results) {
+            for (Searchable result : results.values()) {
                 System.out.println(result);
             }
         }
