@@ -3,12 +3,12 @@ import org.skypro.skyshop.Product;
 import org.skypro.skyshop.DiscountedProduct;
 import org.skypro.skyshop.FixPriceProduct;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Iterator;
 import java.util.List;
 
 public class ProductBasket {
-    private final List<Product> basket = new ArrayList<>();
+    private final List<Product> basket = new LinkedList<>();
 
     public void addToBasket(Product product) {
         basket.add(product);
@@ -60,7 +60,7 @@ public class ProductBasket {
     }
 
     public List delProductByName(String name) {
-        List<Product> delProduct = new ArrayList<>();
+        List<Product> delProduct = new LinkedList<>();
         Iterator<Product> iterator = basket.iterator();
 
         while (iterator.hasNext()) {

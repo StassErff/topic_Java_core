@@ -1,17 +1,17 @@
 package org.skypro.skyshop;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class SearchEngine {
     private final List<Searchable> searchables;
 
     public SearchEngine() {
-        this.searchables = new ArrayList<>();
+        this.searchables = new LinkedList<>();
     }
 
     public List<Searchable> search(String searchBar) {
-        List<Searchable> results = new ArrayList<>();
+        List<Searchable> results = new LinkedList<>();
 
         for (Searchable current : searchables) {
             if (current.getSearchTerm().contains(searchBar)) {
