@@ -2,6 +2,8 @@ package org.skypro.skyshop;
 
 import org.skypro.skyshop.basket.ProductBasket;
 
+import java.util.List;
+
 public class App {
     public static void main(String[] args) {
         SimpleProduct cookie = new SimpleProduct("печенье", 60);
@@ -35,6 +37,15 @@ public class App {
         basket.addToBasket(marshmallow);
         basket.addToBasket(toffees);
         basket.addToBasket(cake);
+
+        basket.printContentsBasket();
+
+        System.out.println("===== Демонстрация метода delProductByName =====");
+        System.out.println("Удаленные продукты: " + basket.delProductByName("печенье"));
+
+        basket.printContentsBasket();
+
+        System.out.println("Удаленные продукты: " + basket.delProductByName("леденец"));
 
         basket.printContentsBasket();
 
