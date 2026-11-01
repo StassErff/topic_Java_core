@@ -2,6 +2,7 @@ package org.skypro.skyshop;
 
 import org.skypro.skyshop.basket.ProductBasket;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class App {
@@ -15,7 +16,7 @@ public class App {
 
         ProductBasket basket = new ProductBasket();
 
-        SearchEngine product = new SearchEngine(10);
+        SearchEngine product = new SearchEngine();
 
         Article articleCookie = new Article("Cookie", "Crispy oatmeal cookies go perfectly with morning coffee");
         Article articleWaffles = new Article("Waffles", "It is customary to drizzle hot Viennese waffles with sweet maple syrup");
@@ -95,16 +96,13 @@ public class App {
             System.out.println(e.getMessage());
         }
     }
-    public static void printSearchResults(Searchable[] results) {
-        boolean foundAtLeastOne = false;
-        for (Searchable item : results) {
-            if (item != null) {
-                System.out.println(item.getStringRepresentation());
-                foundAtLeastOne = true;
-            }
-        }
-        if (!foundAtLeastOne) {
+    public static void printSearchResults(List<Searchable> results) {
+        if (results == null || results.isEmpty()) {
             System.out.println("Ничего не найдено.");
+        } else {
+            for (Searchable result : results) {
+                System.out.println(result);
+            }
         }
     }
 }
