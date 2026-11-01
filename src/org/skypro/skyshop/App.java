@@ -20,12 +20,6 @@ public class App {
         Article articleToffees = new Article("Toffees", "Chewy creamy toffees stick very strongly to one's teeth");
         Article articleCake = new Article("Cake", "The delicate sponge cakes were decorated with fresh raspberries");
 
-        product.add(cookie);
-        product.add(waffles);
-        product.add(marshmallow);
-        product.add(toffees);
-        product.add(lollipop);
-        product.add(cake);
         product.add(articleCookie);
         product.add(articleWaffles);
         product.add(articleToffees);
@@ -57,6 +51,38 @@ public class App {
         System.out.println("Стоимость вашей корзины: " + basket.priceBasket());
 
         System.out.println(basket.checkContentsBasket("леденец"));
+
+        try {
+            SimpleProduct lollipopTest = new SimpleProduct("    ", 15);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Навание продукта не должно быть пустым или null");
+        }
+
+        try {
+            DiscountedProduct toffeesTest = new DiscountedProduct("ириски", 9, 956);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Процент должен быть числом в диапазоне от 0 до 100 включительно");
+        }
+
+        try {
+            SimpleProduct cookieTest = new SimpleProduct("печенье", 0);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Цена должна быть больше нуля");
+        }
+
+        try {
+            Searchable result = product.searchable("cake");
+            System.out.println("Найден элемент с текстом: " + result.getSearchTerm());
+        } catch (BestResultNotFound e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            Searchable result = product.searchable("lollipop");
+            System.out.println("Найден элемент с текстом: " + result.getSearchTerm());
+        } catch (BestResultNotFound e) {
+            System.out.println(e.getMessage());
+        }
     }
     public static void printSearchResults(Searchable[] results) {
         boolean foundAtLeastOne = false;
