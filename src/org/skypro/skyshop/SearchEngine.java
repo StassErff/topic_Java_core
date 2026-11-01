@@ -1,52 +1,40 @@
 package org.skypro.skyshop;
 
-public class SearchEngine {
-    private final Searchable[] searchable;
-    private int size = 0;
+import java.util.LinkedList;
+import java.util.List;
 
-    public SearchEngine(int dimension) {
-        this.searchable = new Searchable[dimension];
+public class SearchEngine {
+    private final List<Searchable> searchables;
+
+    public SearchEngine() {
+        this.searchables = new LinkedList<>();
     }
 
-    public Searchable[] search(String searchBar) {
-        Searchable[] results = new Searchable[5];
-        int count = 0;
+    public List<Searchable> search(String searchBar) {
+        List<Searchable> results = new LinkedList<>();
 
-        for (int i = 0; i < searchable.length; i++) {
-            Searchable current = searchable[i];
-
-            if (current != null && current.getSearchTerm().contains(searchBar)) {
-                results[count] = current;
-                count++;
-
-                if (count == 5) {
-                    break;
-                }
+        for (Searchable current : searchables) {
+            if (current.getSearchTerm().contains(searchBar)) {
+                results.add(current);
             }
         }
 
         return results;
     }
 
-    public void add(Searchable searchables) {
-        if (size < searchable.length) {
-            searchable[size] = searchables;
-            size++;
-        } else {
-            System.out.println("Массив заполнен, добавление невозможно");
-        }
+    public void add(Searchable searchableItem) {
+        searchables.add(searchableItem);
     }
 
     public Searchable searchable(String search) throws BestResultNotFound {
-        Searchable searchable1 = null;
+        Searchable bestResult = null;
         int maxCount = 0;
-        for (Searchable s : searchable) {
-            if (s == null) {
-                continue;
-            }
+
+        for (Searchable s : searchables) {
             int count = 0;
             int index = 0;
             int indexString = s.getSearchTerm().indexOf(search, index);
+
             while (indexString != -1){
                 count++;
                 index = indexString + search.length();
@@ -54,13 +42,13 @@ public class SearchEngine {
             }
             if (count > maxCount) {
                 maxCount = count;
-                searchable1 = s;
+                bestResult = s;
             }
         }
         if (maxCount == 0) {
 
             throw new BestResultNotFound(search);
         }
-        return searchable1;
+        return bestResult;
     }
 }
