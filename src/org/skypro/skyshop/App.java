@@ -18,17 +18,19 @@ public class App {
         Article articleCookie = new Article("Cookie", "Crispy oatmeal cookies go perfectly with morning coffee");
         Article articleWaffles = new Article("Waffles", "It is customary to drizzle hot Viennese waffles with sweet maple syrup");
         Article articleToffees = new Article("Toffees", "Chewy creamy toffees stick very strongly to one's teeth");
-        Article articleCake = new Article("Cake", "The delicate sponge cakes were decorated with fresh raspberries");
+        Article articleCake = new Article("Sponge Cake", "The delicate sponge cakes were decorated with fresh raspberries");
+        Article articleCakes = new Article("Cake", "Cakes are small masterpieces of the confectioner’s art");
 
         product.add(articleCookie);
         product.add(articleWaffles);
         product.add(articleToffees);
         product.add(articleCake);
+        product.add(articleCakes);
+
+        Set<Searchable> searchResults = product.search("Cake");
 
         System.out.println("===== Тест: Ищем cookie, cake, pancake =====");
-        printSearchResults(product.search("cookie"));
-        printSearchResults(product.search("cake"));
-        printSearchResults(product.search("pancake"));
+        printSearchResults(searchResults);
 
         basket.addToBasket("печенье", cookie);
         basket.addToBasket("вафли", waffles);
