@@ -1,10 +1,6 @@
 package org.skypro.skyshop;
-
 import org.skypro.skyshop.basket.ProductBasket;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.Set;
 
 public class App {
     public static void main(String[] args) {
@@ -97,11 +93,11 @@ public class App {
             System.out.println(e.getMessage());
         }
     }
-    public static void printSearchResults(Map<String, Searchable> results) {
+    public static void printSearchResults(Set<Searchable> results) {
         if (results == null || results.isEmpty()) {
             System.out.println("Ничего не найдено.");
         } else {
-            for (Searchable result : results.values()) {
+            for (Searchable result : results) {
                 System.out.println(result);
             }
         }
